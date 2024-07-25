@@ -35,4 +35,9 @@ public class JogadoresController {
 	public Jogadores create(@RequestBody Jogadores jogador) {
 		return service.create(jogador);
 	}
+	
+	@RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
+	public void delete(@PathVariable(value = "id") String id) {
+		service.delete(id);
+	}
 }

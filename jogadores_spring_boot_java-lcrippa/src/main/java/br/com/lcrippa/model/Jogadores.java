@@ -1,14 +1,41 @@
 package br.com.lcrippa.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Jogadores {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+
+
+@Entity
+@Table(name = "Jogadores")
+public class Jogadores implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "Nome", nullable = false, length =80)
 	private String nome;
+	
+	@Column(name = "Sobrenome", nullable = false, length =80)
 	private String  sobrenome;
+	
+	@Column(name = "CPF", nullable = false, length =80)
 	private String CPF;
+	
+	@Column(name = "Nascimento", nullable = false)
 	private String dt_nascimento;
+	
+	@Column(name = "Posicao", nullable = false, length =80)
 	private String posicao;
 	
 	
